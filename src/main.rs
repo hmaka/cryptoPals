@@ -1,4 +1,4 @@
 pub mod crypto_pals_01;
-use hex;
+pub mod crypto_pals_02;
 
 fn main() {}
