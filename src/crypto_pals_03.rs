@@ -1,8 +1,8 @@
 use hex;
 use std::collections::HashMap;
 
-const ENGLISH_LETTER_FREQ: &str = "etaoinshrdlcumwfgypbvkjxqz";
-
+//const ENGLISH_LETTER_FREQ: std::collections::HashMap<char, f32> = HashMap::new();
+const ENGLISH_LETTER_FREQ: &str = "a";
 fn single_byte_xor_cypher(cypher_text: &str) -> Vec<String> {
     let mut result_list: Vec<(i32, String)> = Vec::new();
 
@@ -47,5 +47,5 @@ fn set_1_challenge_3() {
     let cypher_text = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736";
     let result_list = single_byte_xor_cypher(cypher_text);
 
-    println!("{}", result_list[2].to_ascii_lowercase());
+    println!("{:?}", result_list);
 }
