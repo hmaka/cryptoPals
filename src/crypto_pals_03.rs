@@ -2,7 +2,7 @@ use hex;
 use std::collections::HashMap;
 
 const ENGLISH_LETTER_FREQ: &str = include_str!("../letter_freq_data.txt");
-fn single_byte_xor_cypher(cypher_text: &str) -> Vec<String> {
+pub fn single_byte_xor_cypher(cypher_text: &str) -> Vec<(f32, String)> {
     let mut result_list: Vec<(f32, String)> = Vec::new();
 
     let cypher_text: Vec<u8> = hex::decode(cypher_text).expect("failed to decode");
@@ -20,7 +20,7 @@ fn single_byte_xor_cypher(cypher_text: &str) -> Vec<String> {
         }
     }
     result_list.sort_by(|a, b| a.partial_cmp(b).unwrap());
-    let result_list = result_list.into_iter().map(|tuple| tuple.1).collect();
+    //let result_list = result_list.into_iter().map(|tuple| tuple.1).collect();
     return result_list;
 }
 
@@ -53,5 +53,5 @@ fn set_1_challenge_3() {
     // println!("{:?}", result_list[0]);
     // I found the plain text using this code then after the fact created this test with plain text
     // hard coded.
-    assert_eq!(result_list[0], "Cooking MC's like a pound of bacon");
+    assert_eq!(result_list[0].1, "Cooking MC's like a pound of bacon");
 }
