@@ -6,8 +6,7 @@ pub fn hamming_distance_strings(str1: &str, str2: &str) -> i32 {
         (str1_as_bytes.len() as i32 - str2_as_bytes.len() as i32).abs() * 4;
 
     for (byte1, byte2) in str1_as_bytes.iter().zip(str2_as_bytes.iter()) {
-        let byte1_xor_byte2 = byte1 ^ byte2;
-        hamming_distance += byte1_xor_byte2.count_ones() as i32;
+        hamming_distance += (byte1 ^ byte2).count_ones() as i32;
     }
 
     return hamming_distance;
